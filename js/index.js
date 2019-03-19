@@ -1,10 +1,14 @@
 $(function() {
     var hgS1 = new selectSwiper({
         el: '.select_box1',
-        data: ['吃饭', '睡觉', '打豆豆'],
+        data: [{1:'吃饭'}, {2:'睡觉'}, {3:'打豆豆'}],
         init: function(index) {
             if (index !== -1) {
-                $('.btn1').html(this.data[index]);
+                var _obj = this.data[index]
+                var _key = Object.keys(_obj)
+                var _val = _obj[_key]
+                $('.btn1').html(_val);
+                $('.btn1').attr('data-value',_key)
             }
         },
         okFunUndefind: function() {
@@ -13,7 +17,11 @@ $(function() {
         },
         okFun: function(index) {
             console.log(index);
-            $('.btn1').html(this.data[index]);
+            var _obj = this.data[index]
+            var _key = Object.keys(_obj)
+            var _val = _obj[_key]
+            $('.btn1').html(_val);
+            $('.btn1').attr('data-value',_key)
         },
         closeFun: function() {
             console.log('取消');
@@ -26,17 +34,25 @@ $(function() {
         el: '.select_box2',
         mustSelect: true,
         activeIndex: 0,
-        data: ['哈哈2', '呵呵2', '嘻嘻2', '嘿嘿2', '呼呼2', '咳咳2', '嘘嘘2'],
+        data: [{1:'哈哈2'},{2:'呵呵2'},{3:'嘻嘻2'},{4:'嘿嘿2'},{5:'呼呼2'},{6:'咳咳2'},{7:'嘘嘘2'},],
         init: function(index) {
             if (index !== -1) {
-                $('.btn2').html(this.data[index]);
+                var _obj = this.data[index]
+                var _key = Object.keys(_obj)
+                var _val = _obj[_key]
+                $('.btn2').html(_val);
+                $('.btn2').attr('data-value',_key)
             }
         },
         okFunUndefind: function() {
             alert('必须选择一项');
         },
         okFun: function(index) {
-            $('.btn2').html(this.data[index]);
+            var _obj = this.data[index]
+            var _key = Object.keys(_obj)
+            var _val = _obj[_key]
+            $('.btn2').html(_val);
+            $('.btn2').attr('data-value',_key)
         },
         closeFun: function() {
             console.log('取消');
